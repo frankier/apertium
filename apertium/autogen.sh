@@ -1,5 +1,32 @@
 #! /bin/sh
 
+# Bootstrap gnulib
+if [ -z "$SKIP_GNULIB" ]
+then
+    echo "Bootstrapping GNULIB..."
+
+    GNULIB_COMMIT="9280e3089a3f40566bd5e285d5d13e5aa445d583"
+    modules="
+	getopt-gnu
+    "
+
+    if [ -n "$GNULIB_SRCDIR" ]
+    then
+	if [ "$(cd "GNULIB_SRCDIR" && git rev-parse --verify HEAD)" != "$GNULIB_COMMIT" ]; then
+	    echo "Warning: your GNULIB doesn't match the expected commit of GNULIB_COMMIT:"
+	    echo $GNULIB_COMMIT
+	fi
+    else
+	git clone git://git.savannah.gnu.org/gnulib.git gnulib
+	(cd gnulib && git checkout $GNULIB_COMMIT)
+	GNULIB_SRCDIR="$(pwd)/gnulib"
+    fi
+
+    "$GNULIB_SRCDIR"/gnulib-tool \
+	   --import \
+	   "$modules"
+fi
+
 # If the user specified a --prefix, take that, otherwise /usr/local/
 # is the default.
 PREFIX=/usr/local
@@ -32,4 +59,4 @@ export ACLOCAL_PATH
 
 
 # Pass on all args to configure
-autoreconf -fi && ./configure "$@"
+autoreconf -I m4 -fi && ./configure "$@"

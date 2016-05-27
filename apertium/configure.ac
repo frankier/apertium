@@ -1,7 +1,7 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ(2.52)
+AC_PREREQ(2.59)
 
 m4_define([required_lttoolbox_version], [3.3.1])
 m4_define([required_libxml_version], [2.6.17])
@@ -10,6 +10,8 @@ m4_define([required_libpcre_version], [6.4])
 
 AC_INIT([apertium], [3.4.0], [sortiz@users.sourceforge.net])
 AC_CONFIG_HEADER([apertium/apertium_config.h])
+AC_CONFIG_LINKS([lib/config.h:apertium/apertium_config.h])
+AC_CONFIG_FILES([lib/Makefile])
 
 AC_CANONICAL_SYSTEM
 
@@ -53,6 +55,8 @@ VERSION=$GENERIC_VERSION
 AM_INIT_AUTOMAKE(no-define)
 
 AC_PROG_CXX
+gl_EARLY
+gl_INIT
 AC_PROG_LIBTOOL
 AM_SANITY_CHECK
 AC_LANG_CPLUSPLUS
