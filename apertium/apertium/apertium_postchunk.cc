@@ -18,12 +18,12 @@
 #include <lttoolbox/lt_locale.h>
 
 #include <cstdlib>
-#include <getopt.h>
 #include <iostream>
 #include <libgen.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include "getopt_long.h"
 #include <apertium/string_utils.h>
 #ifdef _MSC_VER
 #include <io.h>

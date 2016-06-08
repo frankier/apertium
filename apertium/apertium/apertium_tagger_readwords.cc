@@ -24,7 +24,8 @@
 #include <apertium/tsx_reader.h>
 */
 
-#include <getopt.h>
+#include <unistd.h>
+#include "getopt_long.h"
 #include <apertium/utf_converter.h>
 #include <apertium/morpho_stream.h>
 #include <apertium/tsx_reader.h>

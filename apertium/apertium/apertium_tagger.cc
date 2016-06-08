@@ -43,14 +43,12 @@
 #include <cstdlib>
 #include <cstring>
 #include <fstream>
-#include <getopt.h>
 #include <iomanip>
 #include <ios>
 #include <iostream>
 #include <locale>
 #include <sstream>
 #include <string>
-#include <unistd.h>
 
 #ifdef _MSC_VER
 #include <fcntl.h>

@@ -25,7 +25,8 @@
 #include "file_tagger.h"
 #include "optional.h"
 
-#include <getopt.h>
+#include <unistd.h>
+#include "getopt_long.h"
 #include <string>
 
 namespace Apertium {

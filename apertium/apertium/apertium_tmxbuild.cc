@@ -15,7 +15,8 @@
  * along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 #include <cstdlib>
-#include <getopt.h>
+#include <unistd.h>
+#include "getopt_long.h"
 #include <iostream>
 #include <libgen.h>
 #include <string>
